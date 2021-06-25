@@ -31,7 +31,7 @@ Basic discord.py bot to cache all roles that are selected in config of every use
 
 ## Accessing API 
 
-- all requests will be made to `WEBSERVER_IP`:`WEBSERVER_PORT``WEBSERVER_ROUTE` which by default is: `0.0.0.0:8080/api/v1/getroles`
+- all requests will be made to `WEBSERVER_IP`:`WEBSERVER_PORT` `WEBSERVER_ROUTE` which by default is: `0.0.0.0:8080/api/v1/getroles`
 - if `WEBSERVER_API_KEY` is set be sure to include it in the request body
 
 ### Example Request
