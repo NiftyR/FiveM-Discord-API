@@ -45,3 +45,4 @@ body:
 ## NOTES
 - all links in this document are accurate as of date of last update.
 - feel free to pr anything if you think it could do with being improved
+- I accept no liability for any results of using this script, be it security or physical.
