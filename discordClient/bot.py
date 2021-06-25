@@ -2,6 +2,7 @@ WEBSERVER_IP = "0.0.0.0"
 WEBSERVER_PORT = 8080
 WEBSERVER_ROUTE = "/api/v1/getroles"
 WEBSERVER_API_KEY = "youcantseeme" # Set to false if you don't want to use one
+WEBSERVER_ROLE_NAME = True # Should the api return role names
 BOT_KEY = ""
 SERVERID = 793958539398873108
 ROLES_TO_SYNC = [
@@ -46,9 +47,14 @@ class FiveMBot(discord.Client):
             allData = self.cursor.fetchall()
             if(len(allData) > 0):
                 roleList = []
+                guild = self.get_guild(SERVERID)
                 for _role in allData[0][0].strip('"').split(","):
                     if(_role):
-                        roleList.append(int(_role))
+                        if(WEBSERVER_ROLE_NAME):
+                            roleObj = guild.get_role(int(_role))
+                            roleList.append({"id": int(roleObj.id), "name":roleObj.name})
+                        else:
+                            roleList.append(int(_role))
                 respData = {
                     "roles": roleList
                 }
