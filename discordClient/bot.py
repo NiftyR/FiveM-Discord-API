@@ -104,6 +104,8 @@ class FiveMBot(discord.Client):
                                     if(_role["ENABLED"] == True):
                                         if(role == _role["ROLEID"]):
                                             sqlRoleList.append(role)
+                        if(len(sqlRoleList) == 0):
+                            pass
                         self.cursor.execute(f"""INSERT INTO discordUsers(userID, Roles) VALUES({member.id}, "{str(sqlRoleList).strip('[').strip(']')}") """)
                         self.db.commit()
                         log.info(f"Added {member}'s Roles")
