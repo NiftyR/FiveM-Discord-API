@@ -1,0 +1,5 @@
+discord
+logging
+json
+aiohttp
+sqlite3
